@@ -1,0 +1,15 @@
+package cooperation;
+
+public class Student {
+
+	String name;
+	int grade;
+	int budget;
+	
+	public Student(String name, int budget){
+		
+		this.name = name;
+		this.budget = budget;
+		
+	}
+}

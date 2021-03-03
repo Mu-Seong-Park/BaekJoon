@@ -1,0 +1,23 @@
+import java.io.*;
+
+public class snail {
+
+	public static void main(String[] args) throws IOException {
+		
+		BufferedReader bf = new BufferedReader(
+				new InputStreamReader(System.in));
+		
+		double a,b,v, day;
+		String[] s = new String[3];
+		s = bf.readLine().split(" ");
+		a = Integer.parseInt(s[0]);
+		b = Integer.parseInt(s[1]);
+		v = Integer.parseInt(s[2]);
+		
+		day = (v / ( a - b ) )- 1;
+		
+		System.out.println(day);
+				
+	}
+
+}

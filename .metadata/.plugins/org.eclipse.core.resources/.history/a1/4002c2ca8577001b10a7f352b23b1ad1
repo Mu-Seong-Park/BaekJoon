@@ -1,0 +1,23 @@
+import java.io.*;
+
+public class snail {
+
+	public static void main(String[] args) throws IOException {
+		
+		BufferedReader bf = new BufferedReader(
+				new InputStreamReader(System.in));
+		
+		int a,b,v, count = 0;
+		String[] s = new String[3];
+		s = bf.readLine().split(" ");
+		a = Integer.parseInt(s[0]);
+		b = Integer.parseInt(s[1]);
+		v = Integer.parseInt(s[2]);
+		
+		count = v / ( a - b );
+		
+		System.out.println(count);
+				
+	}
+
+}

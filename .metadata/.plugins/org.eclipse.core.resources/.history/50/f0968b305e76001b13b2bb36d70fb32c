@@ -1,0 +1,11 @@
+
+public class Double {
+
+	public static void main(String[] args) {
+		
+		String a = "아나 왤케 안됨";
+
+		System.out.printf(a.split(" "));
+	}
+
+}

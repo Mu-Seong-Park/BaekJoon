@@ -1,0 +1,30 @@
+import java.io.*;
+import java.util.*;
+
+public class age_sort {
+
+	public static void main(String[] args) throws IOException {
+		
+		BufferedReader bf = new BufferedReader(
+				new InputStreamReader(System.in));
+		
+		int n;
+		n = Integer.parseInt(bf.readLine());
+		
+		String[][] people = new String[n][2];
+		String[] temp = new String[2];
+		for(int i = 0 ; i < n ; i++)
+		{
+			temp = bf.readLine().split(" ");
+			people[i][0] = temp[0];
+			people[i][1] = temp[1];
+		}
+		
+		for(int i = 0 ; i < n ; i++)
+		{
+			System.out.println(people[i][0]+" "+people[i][1]);
+		}
+		bf.close();
+	}
+
+}

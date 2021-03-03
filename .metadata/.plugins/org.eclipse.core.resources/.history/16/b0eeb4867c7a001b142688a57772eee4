@@ -1,0 +1,141 @@
+import java.io.*;
+
+//น้มุ 1874น๘
+public class stack_sequence {
+
+	public static void main(String[] args) throws NumberFormatException, IOException {
+		
+		BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
+		StringBuilder sb = new StringBuilder();
+		int n;
+		
+		n = Integer.parseInt(bf.readLine());
+		
+		Stack stack = new Stack(n);
+		int[] seq = new int[n];
+		int temp = -1;	
+		
+		for(int i = 0 ; i < n ; i++)
+		{
+			seq[i] = Integer.parseInt(bf.readLine());
+		}
+		
+		
+			
+		for(int i = 1 ; i < n + 1 ; i++)
+		{
+			stack.push(i);
+			sb.append("+");
+			for(int j = 0 ; j < i ; j++)
+			{
+				temp = stack.pop();
+				stack.push(temp);
+				if(temp < seq[j])
+				{
+					break;
+				}
+				else if(temp == seq[j])
+				{
+					stack.pop();
+					sb.append("-");
+					if(stack.getIndex() == -1)
+					{
+						break;
+					}
+				}
+				
+			}
+			
+		}
+		
+		for(int i = 0 ; i < sb.length() ; i++)
+		{
+			if(stack.getIndex() != -1)
+			{
+				System.out.println("NO");
+				break;
+			}
+			else
+			{
+				System.out.println(sb.charAt(i));
+			}
+		}
+		
+		
+	
+		bf.close();
+	}
+
+}
+
+class Stack
+{
+	private int[] stack;
+	private int size = 0;
+	private int index = -1;
+	
+	Stack(int size){
+		this.size = size;
+		this.stack = new int[size];
+	}
+	
+	public void push(int data)
+	{
+		if(isFull())
+		{
+			throw new StackOverflow();
+		}
+		stack[++index] = data;
+	}
+	
+	public int pop()
+	{
+		if(isEmpty())
+		{
+			throw new StackUnderflow();
+		}
+		
+		int temp = stack[index--];
+		return temp;
+	}
+	
+	public boolean isEmpty()
+	{
+		if(index == -1)
+		{
+			return true;
+		}
+		return false;
+	}
+	
+	public boolean isFull()
+	{
+		if(index == (size-1))
+		{
+			return true;
+		}
+		
+		return false;
+	}
+	
+	public int getSize()
+	{
+		return size;
+	}
+	
+	public int getIndex()
+	{
+		return index;
+	}
+	
+	static class StackOverflow extends RuntimeException
+	{
+		
+	}
+	
+	static class StackUnderflow extends RuntimeException
+	{
+		
+	}
+	
+}

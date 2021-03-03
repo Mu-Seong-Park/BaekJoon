@@ -1,0 +1,13 @@
+package StaticEX;
+
+public class Studnet {
+	static int serialNum = 10000;
+	int studentID;
+	String name;
+	
+	public Studnet() {
+		serialNum++;
+		studentID = serialNum;
+	}
+
+}

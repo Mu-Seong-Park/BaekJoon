@@ -1,0 +1,43 @@
+import java.util.*;
+import java.io.*;
+
+public class Num_Card2_10816 {
+
+	public static void main(String[] args) throws NumberFormatException, IOException {
+		
+		BufferedReader bf = new BufferedReader(
+				new InputStreamReader(System.in));
+		
+		int n = Integer.parseInt(bf.readLine());
+		
+		String[] pool = new String[n];
+		
+		pool = bf.readLine().split(" ");
+		
+		int m = Integer.parseInt(bf.readLine());
+		
+		String[] question = new String[m];
+		int[] ans = new int[m];
+		
+		question = bf.readLine().split(" ");
+		
+		for(int i = 0 ; i < m ; i++)
+		{
+			for(int j = 0 ; j < n ; j++)
+			{
+				if(pool[j].equals(question[i]))
+				{
+					ans[i]++;
+				}
+			}
+		}
+		
+		for(int i = 0 ; i < m ; i++)
+		{
+			System.out.print(ans[i]+" ");
+		}
+		bf.close();
+		
+	}
+
+}

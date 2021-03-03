@@ -1,0 +1,9 @@
+package StaticEX;
+
+public class Studnet {
+	
+	int studentID;
+	String name;
+	
+
+}

@@ -1,0 +1,10 @@
+package singleton;
+
+public class Company {
+
+	static Company instance = new Company();
+	private Company()
+	{
+		
+	}
+}

@@ -1,0 +1,169 @@
+import java.io.*;
+
+
+public class queue10845 {
+
+	public static void main(String[] args) throws NumberFormatException, IOException {
+		BufferedReader bf = new BufferedReader(
+				new InputStreamReader(System.in));
+		
+		String[] s = new String[2];
+		
+		int n = Integer.parseInt(bf.readLine());
+		
+		for(int i = 0 ; i < n ; i++)
+		{
+			s = bf.readLine().split(" ");
+			
+		}
+	}
+
+}
+
+class Queue2{
+	int front = -1;
+	int end = -1;
+	Object[] queue;
+	int size;
+	
+	Queue2(int size)
+	{
+		this.size = size;
+		this.queue = new Object[size];
+	}
+	
+	public void push(Object x)
+	{
+		if(end == size - 1)
+		{
+			end = -1;
+		}
+		if(isFull())
+		{
+			throw new QueueOverflow();
+		}
+
+		queue[++end] = x;
+	}
+	
+	public Object pop()
+	{
+		Object temp;
+		if(front == size - 1)
+		{
+			front = -1;
+		}
+		
+		if(isEmpty())
+		{
+			temp = -1;
+			return temp;
+		}
+		
+		temp = queue[++front];
+		
+		queue[front] = null;
+		
+		if(isEmpty())
+		{
+			end = -1;
+			front = -1;
+		}
+		
+		return temp;
+	}
+	
+	public Object print_front()
+	{
+		Object temp;
+
+		if(isEmpty())
+		{
+			temp = -1;
+			return temp;
+		}
+		
+		temp = queue[front];
+		
+		return temp;
+	}
+	
+	public Object print_end()
+	{
+		Object temp;
+		if(front == size - 1)
+		{
+			front = -1;
+		}
+		
+		if(isEmpty())
+		{
+			temp = -1;
+			return temp;
+		}
+		
+		temp = queue[++front];
+		
+		queue[front] = null;
+		
+		if(isEmpty())
+		{
+			end = -1;
+			front = -1;
+		}
+		
+		return temp;
+	}
+	
+	public boolean isFull()
+	{
+		return end == size - 1 ? true : false;
+	}
+	
+	public boolean isEmpty()
+	{
+		if(front == end && front == -1)
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
+	
+	public int check_empty()
+	{
+		int temp;
+		if(front == end && front == -1)
+		{
+			temp = 1;
+			return temp;
+		}
+		else
+		{
+			temp = 0;
+			return temp;
+		}
+	}
+	
+	public int getSize()
+	{
+		
+		int temp = end - front + 1;
+		
+		return temp;
+	}
+	
+	static class QueueOverflow extends RuntimeException
+	{
+		
+	}
+	
+	static class QueueUnderflow extends RuntimeException
+	{
+		
+	}
+	
+	
+}

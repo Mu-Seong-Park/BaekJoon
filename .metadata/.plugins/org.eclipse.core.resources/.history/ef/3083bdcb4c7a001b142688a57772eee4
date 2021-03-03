@@ -1,0 +1,28 @@
+import java.io.*;
+
+public class ACMhotel10250 {
+
+	public static void main(String[] args) throws NumberFormatException, IOException {
+		BufferedReader bf = new BufferedReader(
+				new InputStreamReader(System.in));
+		
+		int testCase = Integer.parseInt(bf.readLine());
+		
+		String[] s = new String[3];
+		
+		for(int i = 0 ; i < testCase ; i++)
+		{
+			String ans;
+			s = bf.readLine().split(" ");
+			int h,w,n;
+			h = Integer.parseInt(s[0]);
+			w = Integer.parseInt(s[1]);
+			n = Integer.parseInt(s[2]);
+			
+			
+			
+			System.out.println(ans);
+		}
+	}
+
+}
