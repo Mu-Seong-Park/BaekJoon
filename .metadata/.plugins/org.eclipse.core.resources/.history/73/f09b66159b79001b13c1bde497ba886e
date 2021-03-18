@@ -1,7 +1,0 @@
-package hiding;
-
-public class BirthDay {
-	public int day;
-	public int month;
-	public int year;
-}
