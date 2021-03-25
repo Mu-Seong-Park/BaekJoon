@@ -1,0 +1,45 @@
+import java.io.*;
+import java.util.*;
+
+public class Problem_9012 {
+
+	public static void main(String[] args) throws NumberFormatException, IOException {
+		BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
+		
+		int n = Integer.parseInt(bf.readLine());
+		
+		String str;
+		int cnt = 0;
+		
+		while(cnt < n+1)
+		{
+			int left = 0;
+			int right = 0;
+			str = bf.readLine();
+			for(int j = 0 ; j < str.length() ; j++)
+			{
+				if(str.charAt(j) == ')')
+				{
+					right++;
+				}
+				else
+				{
+					left++;
+				}
+			}
+			if(left != right)
+			{
+				System.out.println("NO");
+			}
+			else
+			{
+				System.out.println("YES");
+			}
+			cnt++;
+		}
+		
+		bf.close();
+		
+	}
+
+}

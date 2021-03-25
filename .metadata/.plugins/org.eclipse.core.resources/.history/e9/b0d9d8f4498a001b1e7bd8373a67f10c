@@ -1,0 +1,142 @@
+import java.io.*;
+import java.util.*;
+
+import Queue.QueueOverflow;
+import Queue.QueueUnderflow;
+
+
+public class Problem_10866 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}
+
+class my_Deque
+{
+	private Object[] my_Deque;
+	private int size = 0;
+	private int rear = -1;
+	private int front = -1;
+	
+	my_Deque(int size){
+		this.size = size;
+		this.my_Deque = new Object[size];
+	}
+	
+	public void push_front(Object data)
+	{
+		if(isFull())
+		{
+			throw new DequeOverflow();
+		}
+		
+		if(front == -1)
+		{
+			front = rear + 1;
+			my_Deque[front] = data;
+		}
+		else
+		{
+			my_Deque[--front] = data;
+		}
+	}
+	
+	public void push_back(Object data)
+	{
+		if(isFull())
+		{
+			throw new DequeOverflow();
+		}
+		
+		my_Deque[++rear] = data;
+	}
+	
+	public Object pop_front()
+	{
+		if(isEmpty())
+		{
+			throw new DequeUnderflow();
+		}
+		
+		++front;
+		Object temp;
+		temp = my_Deque[front];
+		
+		my_Deque[front] = null;
+		
+		if(isEmpty())
+		{
+			rear = -1;
+			front = -1;
+		}
+		
+		return temp;
+		
+		
+		
+	}
+	
+	public Object pop_back()
+	{
+		if(isEmpty())
+		{
+			throw new DequeUnderflow();
+		}
+		
+		
+		Object temp;
+		temp = my_Deque[rear];
+		
+		my_Deque[rear] = null;
+		rear--;
+		
+		if(isEmpty())
+		{
+			rear = -1;
+			front = -1;
+		}
+		
+		return temp;
+	}
+	
+	public boolean isFull()
+	{
+		return rear == size - 1 ? true : false;
+	}
+	
+	public boolean isEmpty()
+	{
+		if(front == rear && front == -1)
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
+	
+	public int getSize()
+	{
+		return size;
+	}
+	
+	static class DequeOverflow extends RuntimeException
+	{
+		
+	}
+	
+	static class DequeUnderflow extends RuntimeException
+	{
+		
+	}
+	
+	
+	
+	
+	
+	
+}

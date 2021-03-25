@@ -12,7 +12,7 @@ public class stack_sequence {
 		
 		n = Integer.parseInt(bf.readLine());
 		
-		Stack stack = new Stack(n);
+		Stack1 stack = new Stack1(n);
 		int[] seq = new int[n];
 		int temp = -1;	
 		
@@ -69,13 +69,13 @@ public class stack_sequence {
 
 }
 
-class Stack
+class Stack1
 {
 	private int[] stack;
 	private int size = 0;
 	private int index = -1;
 	
-	Stack(int size){
+	Stack1(int size){
 		this.size = size;
 		this.stack = new int[size];
 	}

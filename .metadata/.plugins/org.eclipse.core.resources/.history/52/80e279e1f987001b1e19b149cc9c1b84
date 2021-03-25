@@ -1,0 +1,36 @@
+import java.io.*;
+import java.util.*;
+
+
+public class problem_11650 {
+
+	public static void main(String[] args) throws NumberFormatException, IOException {
+		BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
+		StringBuilder sb = new StringBuilder();
+		
+		int n = Integer.valueOf(bf.readLine());
+		
+		ArrayList<Integer> x = new ArrayList<Integer>();
+		ArrayList<Integer> y = new ArrayList<Integer>();
+		String[] temp = new String[2];
+		for(int i = 0 ; i < n ; i++)
+		{
+			temp = (bf.readLine()).split(" ");
+			x.add(Integer.valueOf(temp[0]));
+			y.add(Integer.valueOf(temp[1]));	
+		}
+		
+		Collections.sort(x);
+		Collections.sort(y);
+		
+		for(int i = 0 ; i < n ; i++)
+		{
+			sb.append(x.get(i)).append(" ").append(y.get(i)).append("\n");	
+		}
+		
+		System.out.println(sb);
+		
+		bf.close();
+	}
+
+}
