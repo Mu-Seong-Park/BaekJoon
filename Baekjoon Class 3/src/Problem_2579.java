@@ -27,7 +27,10 @@ public class Problem_2579 {
 		dp[0] = 0;
 		dp[1] = stairs[0];
 		boolean threeCheck = false;
-		dp[2] = dp[1] + stairs[1];
+		if(n >= 2)
+		{
+			dp[2] = dp[1] + stairs[1];
+		}
 		threeCheck = true;
 		
 		for(int i = 3 ; i <= n ; i++)
